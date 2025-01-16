@@ -3,7 +3,7 @@
 
 $serverName = 'localhost';
 $databaseName= 'fpo_supply';
-$usernName = 'sa';
+$userName = 'sa';
 $password = 'p@ss';
 
 //connection option
@@ -11,11 +11,11 @@ $password = 'p@ss';
 
 $connectionOption = array(
     "Database" => $databaseName,
-    'Uid' =>$usernName,
-    'PWD' =>$password,
-    'MultipleActiveResultSets'=>true,
-    'TrustServerCertificate' =>true,
-    "CharacterSet" => "UTF-8"
+    "UID" =>$userName,
+    "PWD" =>$password,
+    "MultipleActiveResultSets"=>true,
+    "TrustServerCertificate" =>true,
+    // "CharacterSet" =>"UTF-8"
 );
 
 // estiblish connection
@@ -23,11 +23,12 @@ $conn = sqlsrv_connect($serverName,$connectionOption);
 
 
 if($conn == false){
+   die( print_r(sqlsrv_errors(),true));
+    
     echo 'fail';
 }
 else{
     echo "connect good";
 }
-
 ?>
-!
+
